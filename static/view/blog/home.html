@@ -1,0 +1,33 @@
+<ul class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li ng-show="tag" class="active">{{tag}}</li>
+</ul>
+<div class="col-12 col-lg-8"><span class="pull-right"><a href="/blog/add"
+                                                         class="btn btn-success btn-small">发布文章</a></span>
+    <ul class="nav nav-tabs" id="blog-status">
+        <li ng-class="action('latest')"><a href="/blog/sort/latest">最新</a></li>
+        <li ng-class="action('hot')"><a href="/blog/sort/hot">最热</a></li>
+        <li ng-class="action('comments')"><a href="/blog/sort/comments">点评</a></li>
+        <li class="active" ng-show="actionShow"><a>{{tags}}</a></li>
+    </ul>
+    <ul class="blogslist">
+        <li ng-repeat="vo in data.blogs"><span class="pull-right"> <span class="label label-danger">{{vo.view}}</span> / <span
+                class="label">{{vo.updatetime}}</span> <span ng-show="checkadmin(vo.email)"><a
+                class="btn btn-danger btn-small" href="/blog/{{vo._id}}/delete">删除</a></span> </span>
+            <h5><img class="avatar" ng-src="http://www.gravatar.com/avatar/{{vo.avatar}}?size=32" width="32"
+                     height="32"> <a href="/content/{{vo._id}}">{{vo.title}}</a></h5>
+        </li>
+    </ul>
+    <div class="col-12 page" ng-bind-html-unsafe="page()"></div>
+</div>
+<div class="col-12 col-lg-4">
+    <h3>会员人数 <span class="label label-success pull-right">{{userlist.num}}</span></h3>
+
+    <div class="row">
+        <div class="col-lg-3" ng-repeat="u in userlist.data">
+            <div class="thumbnail"><img alt="{{u.name}}" ng-src="http://www.gravatar.com/avatar/{{u.avatar}}?size=32">
+            </div>
+            <p style="height:20px; line-height:20px; overflow:hidden; text-align:center">{{u.name}}</p>
+        </div>
+    </div>
+</div>

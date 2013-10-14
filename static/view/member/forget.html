@@ -1,0 +1,36 @@
+<div class="col-12">
+    <div class="pageHeader">
+        <h2>forget Password 修改密码</h2>
+    </div>
+    <!-- /pageHeader -->
+    <div class="row">
+        <div class="pageContainer col-lg-4">
+            <form id="common-form" class="form-horizontal" method="post" accept-charset="utf-8">
+                <fieldset>
+                    <p>
+                        <label for="id_username">用户名称:</label>
+                        <input id="id_username" type="text" name="username" maxlength="30" ng-model="user.name"
+                               placeholder="">
+                    </p>
+
+
+                    <p>
+                        <label for="id_password">用户密码:</label>
+                        <input type="password" name="password" id="id_password" ng-model="user.password" placeholder="">
+          <span class="text-danger" ng-show="register.password.$error.required">
+                    </p>
+
+                    <p>
+                        <label for="id_password2">确认密码:</label>
+                        <input type="password" name="password2" id="id_password2" ng-model="user.password"
+                               placeholder="">
+                    </p>
+
+                </fieldset>
+                <div class="submitDiv">
+                    <input type="submit" value="创建帐号" class="btn btn-small btn-primary">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,215 @@
+/* Key scaffolding
+-------------------------------------------------- */
+
+body {
+    position: relative; /* For scrollyspy */
+    /*padding-top: 50px;*/
+    /* Account for fixed navbar */
+    font-size: 12px;
+    font-family: microsoft yahei;
+    background: #F6F6F6
+}
+
+a:hover {
+    text-decoration: none
+}
+
+.avatar {
+    border-radius: 20px;
+    box-shadow: 0 0 6px hsla(0, 27%, 42%, .5);
+}
+
+.btn-toolbar {
+    margin-top: 10px;
+}
+
+/* Top nav and header
+-------------------------------------------------- */
+
+.bs-docs-nav {
+    background-color: #3D6AA2;
+    border-radius: 0;
+}
+
+.bs-docs-nav .navbar-brand {
+    color: #fff;
+}
+
+.bs-docs-nav .navbar-nav > li > a {
+    color: #DEF;
+}
+
+.bs-docs-nav .navbar-nav > li > a:hover {
+    color: #fff;
+}
+
+.bs-docs-nav .navbar-nav > .active > a, .bs-docs-nav .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .open > a {
+    color: #fff !important;
+    background-color: #355E95 !important;
+}
+
+.bs-docs-nav .navbar-toggle {
+    border-color: #355E95;
+    top: 8px;
+    right: 8px;
+    padding: 4px 8px;
+}
+
+.bs-docs-nav .navbar-toggle:hover {
+    background-color: #3D6AA2;
+    border-color: #355E95;
+}
+
+.bs-docs-nav .navbar-brand,
+.bs-docs-nav .navbar-nav li a {
+    padding: 8px 15px
+}
+
+/*content*/
+.bgw {
+    background: #fff;
+}
+
+.pageContainer input[type=text],
+.pageContainer input[type=password] {
+    background: #F6F6F6
+}
+
+/*blogslist*/
+.blogslist {
+    list-style: none;
+    margin: 0;
+}
+
+.blogslist li {
+    border-bottom: 1px solid #eee;
+}
+
+.blogslist .entity {
+    padding: 20px 0 30px;
+}
+
+.blogslist .info {
+    margin: 10px 0;
+    background: #f7f7f7;
+    padding: 5px;
+}
+
+.footer {
+    margin-top: 30px;
+    padding-bottom: 20px;
+}
+
+.loading {
+    width: 40%;
+    left: 30%;
+    position: fixed;
+    top: 20%;
+}
+
+/*form*/
+.submitDiv {
+    padding-bottom: 20px;
+}
+
+/*mackdowm*/
+.wmd-button-row {
+    position: relative;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    padding: 0px;
+    height: 20px;
+}
+
+.wmd-spacer {
+    width: 1px;
+    height: 20px;
+    margin-left: 14px;
+
+    position: absolute;
+    background-color: Silver;
+    display: inline-block;
+    list-style: none;
+}
+
+.wmd-button {
+    width: 20px;
+    height: 20px;
+    padding-left: 2px;
+    padding-right: 3px;
+    position: absolute;
+    display: inline-block;
+    list-style: none;
+    cursor: pointer;
+}
+
+.wmd-button > span {
+    background-image: url("wmd-buttons.png");
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+
+.wmd-spacer1 {
+    left: 50px;
+}
+
+.wmd-spacer2 {
+    left: 175px;
+}
+
+.wmd-spacer3 {
+    left: 300px;
+}
+
+.wmd-prompt-background {
+    background-color: Black;
+}
+
+.wmd-prompt-dialog {
+    border: 1px solid #999999;
+    background-color: #F5F5F5;
+}
+
+.wmd-prompt-dialog > div {
+    font-size: 0.8em;
+    font-family: arial, helvetica, sans-serif;
+}
+
+.wmd-prompt-dialog > form > input[type="text"] {
+    border: 1px solid #999999;
+    color: black;
+}
+
+.wmd-prompt-dialog > form > input[type="button"] {
+    border: 1px solid #888888;
+    font-family: trebuchet MS, helvetica, sans-serif;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+.wmd-preview {
+    background-color: #ffffff;
+    padding: 10px;
+    min-height: 100px;
+}
+
+#wmd-preview > p {
+    text-indent: 2em;
+}
+
+/*alertBox*/
+.alertBox {
+    position: fixed;
+    bottom: -1px;
+    border: 1px solid #eee;
+    width: 60%;
+    padding: 10px;
+    left: 20%;
+    background: #fff;
+}

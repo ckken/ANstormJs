@@ -1,0 +1,1 @@
+require(__dirname + "/app/core/Nstorm").init(__dirname);

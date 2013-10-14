@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col-12 col-lg-6">
+        <div class="panel inner">
+            <div class="page-header">
+                <h4>{{title}}</h4>
+            </div>
+            <div id="wmd-preview" class="well wmd-preview" gen-parse-markdown="content"></div>
+        </div>
+    </div>
+    <div class="col-12 col-lg-6">
+        <div class="panel inner">
+            <div class="page-header">
+                <div class="alert" ng-show="global.msgbox" ng-class="global.msgboxClass">{{global.msgboxTips}}</div>
+                <h4>添加/编辑文章</h4>
+            </div>
+            <form name="addArticle">
+                <label> 文章标题 </label>
+                <span class="text-warning"> [必填，{{global.TitleMinLen}} 到 {{global.TitleMaxLen}} 字节，当前<strong>{{titleBytes}}</strong>字节] </span>
+                <input class="input-block-level" type="text" placeholder="文章标题" name="title"
+                       ng-model="title" required/>
+                <label> 文章来源 </label>
+                <span class="text-warning">[如转载文章，请填完整的原文URL地址]</span>
+                <input class="input-block-level" type="url" placeholder="原文URL" name="refer"
+                       ng-model="refer"/>
+                <label class="control-label"> 文章内容 </label>
+                <span class="text-warning"> [必填，markdown语法，{{global.ContentMinLen}} 到 {{global.ContentMaxLen}} 字节，当前<strong>{{contentBytes}}</strong>字节] </span>
+
+                <div id="wmd-button-bar"></div>
+                <textarea class="wmd-input" id="wmd-input" ng-model="content" rows="12"
+                          required>
+                </textarea>
+                <label> 文章标签 </label>
+                <span class="text-warning">[最多设置 {{global.ArticleTagsMax}} 个标签]</span>
+                <input type="text" name="tagsList" ng-model="tagsList" ng-list="/[,，、]/" class="input-block-level"/>
+                {{tagsList}}
+                <div class="btn-toolbar"><span>热门标签：</span> <span ng-repeat="tag in global.tagsList"> <a
+                        ng-click="getTag(tag)" class="btn btn-default btn-small">{{tag.tag}}</a> </span></div>
+                <div class="btn-toolbar">
+                    <div class="btn-group">
+                        <button type="button" ng-click="submit()" class="btn btn-primary" ng-disabled="!editSave">提 交
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

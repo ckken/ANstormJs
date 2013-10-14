@@ -1,0 +1,46 @@
+<div class="col-12">
+    <div class="pageHeader">
+        <h2>Register 新会员注册</h2>
+
+        <p>已经有帐号? 现在就开始 <a href="/login">登录吧</a></p>
+    </div>
+    <!-- /pageHeader -->
+    <div class="row">
+        <div class="pageContainer col-lg-4">
+            <div class="alert" ng-show="global.msgbox" ng-class="global.msgboxClass">{{global.msgboxTips}}</div>
+            <form id="common-form" class="form-horizontal" name="register" method="post">
+                <fieldset>
+                    <p ng-class="status()">
+                        <label class="control-label" for="id_username">用户名称:</label>
+                        <input class="input-with-feedback" type="text" maxlength="30" name='uName' ng-model="user.name"
+                               required placeholder="请输入用户名">
+                    </p>
+
+                    <p ng-class="status(register.uEmail.$viewValue,register.uEmail.$error.email)">
+                        <label class="control-label" for="id_username">用户邮箱:</label>
+                        <input class="input-with-feedback" name="uEmail" type="email" maxlength="30"
+                               ng-model="user.email" required placeholder="请输入邮箱">
+                    </p>
+
+                    <p ng-class="status(register.password.$viewValue,register.password.$viewValue.length<6)">
+                        <label class="control-label" for="id_password">用户密码:</label>
+                        <input class="input-with-feedback" type="password" name='password' ng-model="user.password"
+                               placeholder="请输入 6 位密码">
+                    </p>
+
+                    <p ng-class="status(register.password2.$viewValue,register.password2.$viewValue!=register.password.$viewValue)">
+                        <label class="control-label" for="id_password2">确认密码:</label>
+                        <input class="input-with-feedback" type="password" name="password2" ng-model="password2"
+                               placeholder="重复输入密码">
+                    </p>
+
+                </fieldset>
+                <div class="submitDiv">
+                    <input type="submit"
+                           ng-disabled="register.$invalid||!user.password||user.password!=password2||user.password.length<6"
+                           value="创建帐号" ng-click="submit(user)" class="btn btn-small btn-primary">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

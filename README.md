@@ -9,6 +9,8 @@ blog: http://www.vcotime.com/
 
 be good at : php javascript nodejs html css and so on;
 
+临时DEMO： http://112.124.64.160:99/
+
 安装方法：`npm install`
 
 运行程序 `node app.js`

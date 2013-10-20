@@ -12,8 +12,6 @@ config.init = function (path) {
         site_desc: '研究nodejs方向',
         session_secret: 'KenzRSecret',
         secret: 'KensSecret',
-        //Mongodb :'mongodb://ken:ck666666@vcotime.com:27017/sns',
-        //Mongodb :'mongodb://ken:666666@127.0.0.1:27017/sns',
         Mongodb: 'mongodb://112.124.64.160:27017/ANstormjs',
         staticUrl: '',
         surl: '',//css images js url

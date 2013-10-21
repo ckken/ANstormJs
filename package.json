@@ -1,6 +1,8 @@
 {
     "name": "ANstormJs",
     "version": "0.0.1",
+    "description": "",
+    "keywords": ["Node.js", "AngularJS", "mongoDB", "Seajs"],
     "private": true,
     "scripts": {
         "start": "node app"
@@ -8,8 +10,8 @@
     "dependencies": {
         "express": "*",
         "ejs": "*",
-        "mongoose": "*",
-        "nodemailer": "*"
-
+        "mongoskin": "*",
+        "nodemailer": "*",
+        "thenjs":"*"
     }
 }

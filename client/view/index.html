@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html ng-app="Nstorm">
+<!--[if lt IE 8]>
+<html xmlns:ng="http://angularjs.org" id="ng-app" ng-app="Nstorm">
+<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nstorm - Nodejs MVC FrameWork - NodeJs And AngularJs</title>
+    <link href="/style/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="/style/css/site.css" rel="stylesheet" type="text/css">
+    <link href="/style/css/prettify.css" rel="stylesheet" type="text/css">
+    <script>
+        window.Nstorm = {
+            version: '1.0.0',
+            root: '/',
+            app: '/lib',
+            view: '/view'
+        };
+    </script>
+    <script src="/lib/core/angular.js"></script>
+    <script src="/lib/core/resource.js"></script>
+    <script src="/lib/common/marked.min.js"></script>
+    <script src="/lib/common/Markdown.Editor.min.js"></script>
+    <script src="/lib/common/prettify.min.js"></script>
+    <script src="/lib/common/sanitize.min.js"></script>
+    <script src="/lib/common/xss.js"></script>
+    <script src="/lib/common/utf8.min.js"></script>
+    <script src="/lib/controllers.js"></script>
+    <script src="/lib/directives.js"></script>
+    <script src="/lib/services.js"></script>
+    <script src="/lib/filters.js"></script>
+    <script src="/lib/tools.js"></script>
+    <script src="/lib/app.js"></script>
+</head>
+<body data-spy="scroll" data-target=".bs-sidebar">
+<div class="navbar navbar-inverse bs-docs-nav">
+    <!-- <div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav">-->
+    <div class="container"><a href="/" class="navbar-brand">ANstorm</a>
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse"><span
+                class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
+        <div class="nav-collapse collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">首页</a></li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">NodeJs<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/blog/tags/NodeJs">NodeJs</a></li>
+                        <li><a href="/blog/tags/Nstorm">Nstorm Api</a></li>
+                        <li class="divider"></li>
+                        <li><a href="https://github.com/ckken/Nstorm" target="_blank">Nstorm GitHub</a></li>
+                    </ul>
+                <li>
+
+
+                <li><a href="/blog/tags/AngularJS">AngularJS</a></li>
+                <li><a href="/blog/tags/SeaJS">SeaJS</a></li>
+                <!--<li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown">AngularJS<b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/blog/tags/AngularJS 入门教程">入门教程</a></li>
+                                        <li><a href="/blog/tags/AngularJS 开发指南">开发指南</a></li>
+                                        <li><a href="/blog/tags/AngularJS API手册">API手册</a></li>
+                                        <li><a href="/blog/tags/AngularJS 文档资讯">文档资讯</a></li>
+                                        <li><a href="/blog/tags/AngularJS">AngularJS</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="https://github.com/angular/angular.js" target="_blank">GitHub源代码</a></li>
+                                        <li><a href="http://code.angularjs.org/" target="_blank">最新下载</a></li>
+                                    </ul>
+                                </li>-->
+
+            </ul>
+            <ul class="nav navbar-nav pull-right">
+                <li ng-hide="global.isLogin"><a href="/login">登录</a></li>
+                <li ng-hide="global.isLogin"><a href="/register">注册</a></li>
+                <li class="dropdown" ng-show="global.isLogin"><a class="dropdown-toggle" data-toggle="dropdown">
+                    <span><img class="avatar hidden-phone"
+                               ng-src="http://www.gravatar.com/avatar/{{global.user.avatar}}?size=23" width="23"
+                               height="23"> </span> {{global.user.name}} <b class="caret hidden-phone"></b> </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/home">用户主页</a></li>
+                        <li><a href="/blog/add">发表文章</a></li>
+                        <!--                                    <li><a ng-href="/home" title="Uid:{{global.user._id}}">我的主页</a></li>
+                                                                                <li class="divider"></li>
+                                                                                <li ng-show="global.isEditor"><a ng-href="/admin">网站管理</a></li>
+                                                                                -->
+                        <li class="divider"></li>
+                        <li><a ng-click="logout()">退出</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row bgw">
+        <div ng-view></div>
+    </div>
+</div>
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">Nodejs 开源社区 Nstorm 驱动<br>
+                Power by nodejs + mongodb + angularJs + Nstorm<br>
+                Join us email to ckken@qq.com
+            </div>
+        </div>
+    </div>
+</div>
+<div class="loading" ng-show="global.loading">
+    <div class="progress progress-striped active">
+        <div class="progress-bar" style="width: 100%"></div>
+    </div>
+</div>
+<script src="/style/js/jquery.js"></script>
+<script src="/style/js/bootstrap.min.js"></script>
+</body>
+</html>

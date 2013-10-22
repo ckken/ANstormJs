@@ -6,18 +6,25 @@
     <div class="alert" ng-show="global.msgbox" ng-class="global.msgboxClass">{{global.msgboxTips}}</div>
     <div class="single" ng-show="!global.msgbox">
 
-        <div class="col-lg-2 pull-right">
-            <a href="#">
-                <img class="avatar" ng-src="http://www.gravatar.com/avatar/{{vo.avatar}}?size=60" width="60"
-                     height="60"> </a>
-        </div>
         <h3>{{vo.title}}</h3>
 
-        <div class="info"> {{vo.author}} / 关键字:<span ng-repeat="v in vo.tags"> <a class="btn btn-primary btn-small"
-                                                                                  ng-href="/blog/tags/{{v}}">{{v}}</a> </span>
+        <div class="info"> {{vo.author.name}} / 关键字:<span ng-repeat="v in vo.tags">
+            <a class="btn btn-primary btn-xs" ng-href="/blog/tags/{{v}}">{{v}}</a> </span>
             / 更新:{{vo.updatetime}} / 热度: {{vo.view+1}}
         </div>
         <div class="entity" gen-parse-markdown="vo.content"></div>
+        <div class="info">
+
+            <div class="bs-callout bs-callout-warning media">
+                <img class="pull-left img-circle" ng-src="http://www.gravatar.com/avatar/{{vo.avatar}}?size=40">
+                <div class="media-body">
+                <h4>{{vo.author.name}}</h4>
+                <p>文章数:{{vo.author.postnum}} 是否认证:{{vo.author.status}}</p>
+                </div>
+            </div>
+
+
+        </div>
     </div>
 </div>
 <div class="col-12 col-lg-4"></div>

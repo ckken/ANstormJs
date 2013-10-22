@@ -12,25 +12,25 @@
         <div class="alert" ng-show="global.msgbox" ng-class="global.msgboxClass">{{global.msgboxTips}}</div>
         <form id="common-form" class="form-horizontal" method="post" accept-charset="utf-8" name="login">
             <fieldset>
-                <p>
+                <p class="form-group">
                     <label for="id_username">用户名称或邮箱:</label>
-                    <input id="id_username" type="text" name="username" maxlength="30" ng-model="user.name" required
+                    <input class="form-control" id="id_username" type="text" name="username" maxlength="30" ng-model="user.name" required
                            placeholder="">
                 </p>
 
-                <p>
+                <p class="form-group">
                     <label for="id_password">用户密码:</label>
-                    <input type="password" name="password" id="id_password" ng-model="user.password" required
+                    <input class="form-control" type="password" name="password" id="id_password" ng-model="user.password" required
                            placeholder="">
 
-                <div class="checkbox">
+                <div class="checkbox form-group">
                     <label>
                         <input type="checkbox" ng-mdel="user.remember" checked="checked">
                         记住密码 </label>
                 </div>
                 </p>
             </fieldset>
-            <div class="submitDiv">
+            <div class="submitDiv form-group">
                 <input type="submit" value="会员登录" ng-click="submit(user)" ng-disabled="login.$invalid"
                        class="btn btn-small btn-primary">
             </div>

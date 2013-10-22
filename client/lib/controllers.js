@@ -189,7 +189,6 @@ angular.module('Nstorm.controllers', []).
 
     controller('userLoginCtrl', ['$scope', '$routeParams', '$http',
         function ($scope, $routeParams, $http) {
-            //$scope.login_submit=($scope.user.name!='')?0:1;
             $scope.msg(0);
             $scope.submit = function (user) {
 

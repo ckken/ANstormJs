@@ -1,13 +1,9 @@
 /* Key scaffolding
 -------------------------------------------------- */
 
-body {
-    position: relative; /* For scrollyspy */
-    /*padding-top: 50px;*/
-    /* Account for fixed navbar */
-    font-size: 12px;
-    font-family: microsoft yahei;
-    background: #F6F6F6
+body{ position:relative; padding-top:50px; }
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,body{
+    font-family:Helvetica, STHeiti STXihei, Microsoft JhengHei, Microsoft YaHei, Tohoma, Arial
 }
 
 a:hover {
@@ -63,7 +59,7 @@ a:hover {
 
 .bs-docs-nav .navbar-brand,
 .bs-docs-nav .navbar-nav li a {
-    padding: 8px 15px
+
 }
 
 /*content*/
@@ -80,6 +76,7 @@ a:hover {
 .blogslist {
     list-style: none;
     margin: 0;
+    -webkit-padding-start:0;
 }
 
 .blogslist li {
@@ -213,3 +210,39 @@ a:hover {
     left: 20%;
     background: #fff;
 }
+
+/* Common styles for all types */
+.bs-callout {
+    margin: 20px 0;
+    padding: 15px 30px 15px 15px;
+    border-left: 5px solid #eee;
+}
+.bs-callout h4 {
+    margin-top: 0;
+}
+.bs-callout p:last-child {
+    margin-bottom: 0;
+}
+.bs-callout code,
+.bs-callout .highlight {
+    background-color: #fff;
+}
+
+/* Variations */
+.bs-callout-danger {
+    background-color: #fcf2f2;
+    border-color: #dFb5b4;
+}
+.bs-callout-warning {
+    background-color: #fefbed;
+    border-color: #f1e7bc;
+}
+.bs-callout-info {
+    background-color: #f0f7fd;
+    border-color: #d0e3f0;
+}
+
+.thumbnail{ border-radius: 0}
+.editor{ padding: 10px 20px;}
+
+.navbar-nav .open .dropdown-menu{ background: #f7f7f7}

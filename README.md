@@ -1,4 +1,4 @@
-ANS Angularjs NstormJs web framework v 0.0.2
+ANS Angularjs NstormJs web framework v 0.1.2
 =========
 
 临时DEMO： http://112.124.64.160:100/

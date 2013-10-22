@@ -11,9 +11,13 @@
         <li class="active" ng-show="actionShow"><a>{{tags}}</a></li>
     </ul>
     <ul class="blogslist">
-        <li ng-repeat="vo in data.blogs"><span class="pull-right"> <span class="label label-danger">{{vo.view}}</span> / <span
-                class="label">{{vo.updatetime}}</span> <span ng-show="checkadmin(vo.email)"><a
-                class="btn btn-danger btn-small" href="/blog/{{vo._id}}/delete">删除</a></span> </span>
+        <li ng-repeat="vo in data.blogs">
+            <span class="pull-right">
+            <span class="label label-danger">{{vo.view}}</span> /
+            <span
+                class="label label-default">{{vo.updatetime}}</span>
+                <span ng-show="checkadmin(vo.email)">
+                    <a class="btn btn-danger btn-xs" href="/blog/{{vo._id}}/delete">删除</a></span> </span>
             <h5><img class="avatar" ng-src="http://www.gravatar.com/avatar/{{vo.avatar}}?size=32" width="32"
                      height="32"> <a href="/content/{{vo._id}}">{{vo.title}}</a></h5>
         </li>

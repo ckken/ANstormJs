@@ -4,7 +4,8 @@ D.bind('blogs', {
     },
     findById: function(id,fn){
         // mongoskin {_id: db.ObjectID.createFromHexString('4f5bc53f3d0b5eb764000002')}
-        this.findOne({_id: this.ObjectID.createFromHexString(id)},function(err,d){
+        console.log(id);
+        this.findOne({_id: this.ObjectID(id)},function(err,d){
         //this.findOne({_id: blogs.id},function(err,d){
             fn(err,d);
         });
@@ -31,7 +32,7 @@ D.bind('blogs', {
         this.remove({tags:tag},fn);
     },
     delete:function(id,fn){
-        this.remove({_id: this.ObjectID.createFromHexString(id)},function(err){
+        this.remove({_id: this.ObjectID(id)},function(err){
             fn(err);
         });
     }

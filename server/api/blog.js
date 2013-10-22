@@ -82,9 +82,16 @@ o.content = function (req, res, next) {
             else {
                 row.creattime = _S.date.format(row.creattime, 'yyyy-mm-dd hh:ii:ss');
                 row.updatetime = _S.date.format(row.updatetime, 'yyyy-mm-dd hh:ii:ss');
-                row.avatar = _S.encode.md5(row.email||'');
-                res.json({"blogs":row});
-                D.collection('members').update({_id: row.id}, {$inc: {view: 1}}, function (r) {
+                D.collection('members').findOne({name:row.author},function (err, data) {
+                    console.log(data);
+                    if(data!=null){
+                        row.author = data;
+                        row.avatar = _S.encode.md5(data.email||'');
+                    }
+
+                     res.json({"blogs":row});
+                });
+                D.collection('blogs').updateById(row._id,{$inc: {view: 1}}, function (e,r) {
                 });
             }
 
@@ -144,7 +151,6 @@ o.author = function (req, res, next) {
                 if ('undifined' !== typeof userinfo) {
 
                     userinfo.avatar = _S.encode.md5(userinfo.email);
-                    //res.render('blog/author.html', {todos: todos.data,page:pageList,author:where.author,userinfo:userinfo});
                     res.json({
                         blogs: todos.data,
                         page: pageList,

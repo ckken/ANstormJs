@@ -1,4 +1,12 @@
 var date = {
+
+    time:function(datetime){
+
+        var date = new Date(datetime||'');
+        var time = Math.round(date.getTime()/1000);
+        return time;
+    },
+
     format: function (date, format) {
         date = new Date(parseInt(date) * 1000);
 

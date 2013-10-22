@@ -78,12 +78,15 @@ o.insert = function (req, res, next) {
             d.content = content;
             d.status = (status == 1) ? true : false;
             d.tags = (tags) ? tags : '';
+            var date = new Date();
+            var time = Math.round(date.getTime()/1000);
+            d.updatetime = time;
+            d.createtime = time;
 
             D.collection('blogs').insert(d, function (err, row) {
                 if (err)return next(err);
-                //console.log(row);
-                res.json({code: 0, data: row, tips: "添加成功"});
-                D.collection('members').update({email: d.email}, {$inc: {postnum: 1}}, function (r) {
+                res.json({code: 0, data: row[0], tips: "添加成功"});
+                D.collection('members').update({email: d.email}, {$set:{$inc: {postnum: 1}}}, function (r) {
                 });
             })
             //res.redirect('/');
@@ -142,14 +145,14 @@ o.delete = function (req, res, next) {
             res.json({status: 1, tips: '无权限操作'});
             return;
         }
-        console.log(D.collection('blogs'));
-        D.collection('blogs').del(id, function (err) {
+        D.collection('blogs').delete(id, function (err) {
             if (err) {
                 return next(err);
             }
 
-            D.collection('members').update({email: row.email}, {$inc: {postnum: -1}}, function (r) {
-            });
+            if(row.author == _S.Guser.name)
+                D.collection('members').update({email: row.email}, {$inc: {postnum: -1}}, function (r) {});
+
             if (row.pic != '') {
                 fs = require('fs');
                 if('undefined'!==typeof row.pic)fs.unlink(C.config.static +'/'+row.pic);

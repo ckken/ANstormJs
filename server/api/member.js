@@ -11,7 +11,7 @@ o.login = function (req, res) {
             {name: name}
         ];
         where.password = _S.encode.md5(password);
-
+        console.log(where);
         D.collection('members').findOne(where, function (err, data) {
 
             if (data != null) {
@@ -28,7 +28,10 @@ o.login = function (req, res) {
                 req.ip = headers['x-real-ip'] || headers['x-forwarded-for'] || req.ip;
                 var d = {};
                 d.logip = req.ip;
-                D.collection('members').update({_id: data._id}, d, function (err, row) {
+                D.collection('members').update(
+                    {_id:data._id},
+                    {$set: d},
+                    function (err, row) {
                 });
 
 
@@ -67,11 +70,12 @@ o.register = function (req, res) {
                 D.collection('members').count({name: d.name}, function (err, count) {
                     var data = d;
                     if (!count) {
-                        D.collection('members').insert(d, function (err, id) {
+                        D.collection('members').insert(d, function (err) {
                             // console.log(data);
-                            data.id = id;
+                           // data.id = id;
                             data.status = 0;
-                            var key = {name: data.name, email: data.email, uid: data.id, status: data.status};
+                            var key = {name: data.name, email: data.email, uid: data._id, status: data.status};
+                            console.log(key);
                             key = JSON.stringify(key);
                             key = _S.encode.e(key);
                             res.cookie('user', key, { maxAge: C.maxAge, path: '/', signed: true});
@@ -82,7 +86,10 @@ o.register = function (req, res) {
                             var d = {};
                             d.logip = req.ip;
                             d.regip = req.ip;
-                            D.collection('members').update({_id: data._id}, d, function (err, row) {
+                            D.collection('members').update(
+                                {_id:data._id},
+                                {$set: d},
+                                function (err, row) {
                             });
 
                         });

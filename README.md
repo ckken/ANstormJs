@@ -1,7 +1,7 @@
 ANS Angularjs NstormJs web framework v 0.0.2
 =========
 
-临时DEMO： http://112.124.64.160:99/
+临时DEMO： http://112.124.64.160:100/
 
 安装方法：`npm install`
 

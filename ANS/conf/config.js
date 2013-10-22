@@ -6,7 +6,7 @@ config.init = function (path) {
     var app = root + '/server';
     var conf = {
         debug: false,
-        port: 99,
+        port: 100,
         email: 'ckken@qq.com',
         site_name: 'NodeJs开发社区',
         site_desc: '研究nodejs方向',

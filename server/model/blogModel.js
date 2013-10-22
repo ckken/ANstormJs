@@ -26,8 +26,6 @@ D.bind('blogs', {
                 fn(err, d);
             })
         });
-
-
     },
     removeTagWith : function (tag, fn) {
         this.remove({tags:tag},fn);

@@ -7,12 +7,6 @@ ANS Angularjs NstormJs web framework v 0.1.2
 
 运行程序 `node app.js`
 
-运用框架 mongoskin nodejs express nstorm
+运用框架 mongodb(Mongoskin) , Nodejs , Express , Nstorm , AngularJs , Seajs(next version)
 
-author : @KenZR
-
-sina weibo: http://weibo.com/cksky
-
-blog: http://www.vcotime.com/
-
-be good at : php javascript nodejs html css and so on;
+实现预期：meteor 模式 前后端结合模型

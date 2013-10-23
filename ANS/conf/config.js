@@ -12,7 +12,7 @@ config.init = function (path) {
         site_desc: '研究nodejs方向',
         session_secret: 'KenzRSecret',
         secret: 'KensSecret',
-        mongodb: 'mongodb://nstorm:666666@112.124.64.160:27017/ANstormjs',
+        mongodb: 'mongodb://localhost:27017/ANstormjs',
 
         maxAge: 259200000,
         version: '0.0.1',

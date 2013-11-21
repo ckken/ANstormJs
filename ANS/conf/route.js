@@ -13,8 +13,8 @@ route.init = function (app) {
         var m = req.params.module, a = req.params.action;
         C.route.m = m, C.route.a = a;
         req.xdata = data;
-
-        require(C.config.app + '/api/' + m)['init'](req, res, next, a);
+        var app = require(C.config.app+'/api/'+m);
+        app.init(req, res, next, a);
 
 
     });

@@ -8,7 +8,7 @@ var express = {
         //app.use(minify());
         //app.use(minify({cache: __dirname + '/cache'}));
         //缓存 临时上传路径
-        app.use(express.bodyParser({uploadDir: C.config.root + '/runtime/images'}));
+        //app.use(express.bodyParser({uploadDir: C.config.root + '/runtime/images'}));
         //模版
         //app.engine('html', require('ejs').__express);
         app.engine('html', require('ejs').renderFile);
@@ -20,7 +20,9 @@ var express = {
             /*app.helpers({config: config})*/
             app.use(express.favicon(C.config.static + '/favicon.ico'));
             app.use(express.logger('dev'));
-            app.use(express.bodyParser());
+            //app.use(express.bodyParser());
+            app.use(express.json());
+            app.use(express.urlencoded());
             app.use(express.cookieParser(C.config.secret));//增加cookie支持
             //    app.use(express.cookieSession({
             //        secret: 'KenSecret'
@@ -28,7 +30,6 @@ var express = {
             //        ,cookie: { path: '/', maxAge: 1000 * 60 * 60 * 24 * 30}//30 days{ path: '/', httpOnly: true, maxAge: null }
             //
             //    }));
-
             app.use(express.methodOverride());
             app.use(express.static(C.config.static));//先声明静态环境 再设置路由 防止静态文件被路由解析了
             app.use(app.router);//设置路由

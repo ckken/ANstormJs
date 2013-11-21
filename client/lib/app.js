@@ -2,7 +2,7 @@
 
 window.Nstorm = Nstorm || {};
 
-angular.module('Nstorm', ['Nstorm.controllers', 'Nstorm.directives', 'Nstorm.services', 'Nstorm.tools', 'Nstorm.filters']).
+angular.module('Nstorm', ['ngRoute','Nstorm.controllers', 'Nstorm.directives', 'Nstorm.services', 'Nstorm.tools', 'Nstorm.filters']).
     provider('newVersion',function () {
         var get = function (url) {
             return url + '?v=' + (Nstorm.version || '');
@@ -131,6 +131,8 @@ angular.module('Nstorm', ['Nstorm.controllers', 'Nstorm.directives', 'Nstorm.ser
         $rootScope.global.UserTagsMax = 4;
         $rootScope.global.TitleMaxLen = 90;
         $rootScope.global.TitleMinLen = 5;
+
+        $rootScope.global.title = "Nstorm - Nodejs MVC FrameWork - NodeJs And AngularJs";
 
 
         $rootScope.logout = function () {

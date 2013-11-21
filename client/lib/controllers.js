@@ -2,6 +2,7 @@ angular.module('Nstorm.controllers', []).
 
     controller('indexCtrl', ['$scope', '$routeParams', '$http',
         function ($scope, $routeParams, $http) {
+            $scope.global.subTitle = 'Home';
             //bysort
             $scope.actionShow = 0;
             var bysort = ('undefined' !== typeof $routeParams.bysort) ? $routeParams.bysort : 'latest';
@@ -39,6 +40,7 @@ angular.module('Nstorm.controllers', []).
             $http.get('/api/blog/index/s/' + $routeParams.tag + page).success(function (data) {
                 $scope.data = data;
                 $scope.tag = $routeParams.tag;
+                $scope.global.subTitle = $scope.tag;
                 $scope.page = function () {
                     return data.page
                 };
@@ -64,6 +66,7 @@ angular.module('Nstorm.controllers', []).
                 else {
                     $scope.msg(0);
                     $scope.vo = data.blogs;
+                    $scope.global.subTitle = $scope.vo.title;
                 }
                 Nstorm.rootScope.global.loading = false;
             });
@@ -261,6 +264,7 @@ angular.module('Nstorm.controllers', []).
                         $scope.global.user = Nstorm.union(cb.data);
                         $scope.checkUser();
                         $scope.msg(1, cb.tips, 'success');
+
                         //Nstorm.location.path('/');
                     }
 

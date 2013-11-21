@@ -32,10 +32,10 @@ var ANS  ={
 
     mongo:function(app){
         var mongo = C.mod.mongoskin;
-        global.D = mongo.db(C.config.mongodb);
+        global.D = mongo.db(C.config.mongodb,{safe:false});
 
         app.on('close', function (err) {
-          mongo.close();
+            mongo.close();
         });
 
     }

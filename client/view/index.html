@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nstorm - Nodejs MVC FrameWork - NodeJs And AngularJs</title>
+    <title ng-bind="global.subTitle+' | '+global.title">Nstorm - Nodejs MVC FrameWork - NodeJs And AngularJs</title>
     <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="/style/css/site.css" rel="stylesheet" type="text/css">
     <link href="/style/css/prettify.css" rel="stylesheet" type="text/css">
@@ -28,8 +28,8 @@
     <![endif]-->
 
     <script>
-        window.Nstorm = {
-            version: '1.0.0',
+        var Nstorm = {
+            version: '0.1.1',
             root: '/',
             app: '/lib',
             view: '/view'
@@ -37,8 +37,9 @@
     </script>
     <script src="/lib/jquery/jquery.js"></script>
     <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/lib/core/angular.js"></script>
-    <script src="/lib/core/resource.js"></script>
+    <script src="/lib/angular/angular.min.js"></script>
+    <script src="/lib/angular/angular-route.min.js"></script>
+    <script src="/lib/angular/angular-resource.min.js"></script>
     <script src="/lib/common/marked.min.js"></script>
     <script src="/lib/common/Markdown.Editor.min.js"></script>
     <script src="/lib/common/prettify.min.js"></script>

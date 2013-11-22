@@ -1,7 +1,7 @@
-ANS Angularjs NstormJs web framework v 0.1.2
+ANS Angularjs NstormJs web framework v 0.1.3
 =========
 
-DEMO： http://anstorm.wvovo.com/
+DEMO： http://ans.wvovo.com/
 
 安装方法：`npm install`
 
@@ -11,5 +11,5 @@ DEMO： http://anstorm.wvovo.com/
 
 运用框架 mongodb(Mongoskin) , Nodejs , Express , Nstorm , AngularJs , Seajs(next version)
 
-实现预期：meteor 模式 前后端结合模型
+调整了部分代码 优化angularjs 1.2.1版本带来的问题
 

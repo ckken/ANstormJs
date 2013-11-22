@@ -1,11 +1,10 @@
 var base = {
 
-    pN: C.lib.pageNavi,
-    Up: C.lib.upload,
-    date: C.lib.date,
-    encode: C.lib.encode,
-    html: C.lib.html,
-    then:C.mod.thenjs,
+    pN: F.pageNavi,
+    Up: F.upload,
+    date: F.date,
+    encode: F.encode,
+    html: F.html,
     Guser: {},
 
     init: function (req, res, next, a) {

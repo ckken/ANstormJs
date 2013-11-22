@@ -1,43 +1,41 @@
 var ANS  ={
     init: function (root) {
         this.root = root;
-        global.C = {};
-        C.config = require(root + "/ANS/conf/config").init(root);
-        C.mod = {};
-        C.mod.express = require('express');
-        C.mod.mongoskin = require('mongoskin');
-        C.mod.nodemailer = require('nodemailer');
-        C.mod.thenjs = require('thenjs');
+        global.C = require(root + "/ANS/config").init(root);
+        M = {};
+        M.express = require('express');
+        M.mongoskin = require('mongoskin');
+        M.nodemailer = require('nodemailer');
+        M.thenjs = require('thenjs');
         var libpath = root + '/ANS/lib/';
-        C.lib = {};
-        C.lib.pageNavi = require(libpath + '/pageNavi');
-        C.lib.date = require(libpath + '/date');
-        C.lib.dir = require(libpath + '/dir');
-        C.lib.email = require(libpath + '/email');
-        C.lib.encode = require(libpath + '/encode');
-        C.lib.html = require(libpath + '/html');
-        C.lib.msg = require(libpath + '/msg');
-        C.lib.upload = require(libpath + '/upload');
+        F = {};
+        F.pageNavi = require(libpath + '/pageNavi');
+        F.date = require(libpath + '/date');
+        F.dir = require(libpath + '/dir');
+        F.email = require(libpath + '/email');
+        F.encode = require(libpath + '/encode');
+        F.html = require(libpath + '/html');
+        F.msg = require(libpath + '/msg');
+        F.upload = require(libpath + '/upload');
         //init config
         this.express();
     },
 
     express:function(){
-        var app = require(this.root + '/ANS/conf/express').init();
-        require(this.root+'/ANS/conf/route').init(app);
+        var app = require(this.root + '/ANS/mod/express').init();
+        require(this.root+'/ANS/mod/route').init(app);
         this.mongo(app);
-        require('http').createServer(app).listen(C.config.port, function () {
+        require('http').createServer(app).listen(C.port, function () {
         });
     },
 
     mongo:function(app){
-        var mongo = C.mod.mongoskin;
-        global.D = mongo.db(C.config.mongodb,{safe:false});
+        var mongo = M.mongoskin;
+        global.D = mongo.db(C.mongodb,{safe:false});
 
         app.on('close', function (err) {
             mongo.close();
         });
-
     }
 
 }

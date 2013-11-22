@@ -1,4 +1,4 @@
-ANS Angularjs NstormJs web framework v 0.1.3
+ANS Angularjs NstormJs web framework v 0.1.3.2
 =========
 
 DEMO： http://ans.wvovo.com/

@@ -1,5 +1,5 @@
 var o = require('./base');
-require(C.config.model+'/blogModel');
+require(C.model+'/blogModel');
 o.my = function (req, res, next) {
 
     var _S = this;
@@ -104,7 +104,7 @@ o.update = function (req, res, next) {
         return;
     }
 
-    if ('undefined' !== typeof req.xdata && req.xdata.id != '') {
+    if ('undefined' !== typeof req.getData && req.getData.id != '') {
 
         var title = req.body.title || '';
         title = title.trim();
@@ -134,7 +134,7 @@ o.update = function (req, res, next) {
 
 o.delete = function (req, res, next) {
     var _S = this;
-    var id = req.xdata.id;
+    var id = req.getData.id;
     D.collection('blogs').findById(id, function (err, row) {
 
         if (err) {
@@ -155,7 +155,7 @@ o.delete = function (req, res, next) {
 
             if (row.pic != '') {
                 fs = require('fs');
-                if('undefined'!==typeof row.pic)fs.unlink(C.config.static +'/'+row.pic);
+                if('undefined'!==typeof row.pic)fs.unlink(C.static +'/'+row.pic);
             }
             //res.redirect('/');
             res.json({status: 0, tips: '成功删除'});

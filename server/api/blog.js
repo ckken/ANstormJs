@@ -1,5 +1,5 @@
 var o = require('./base');
-require(C.config.model+'/blogModel');
+require(C.model+'/blogModel');
 
 o.index = function (req, res, next) {
     var _S = this;
@@ -8,7 +8,7 @@ o.index = function (req, res, next) {
     var pageList = '';
     //搜索
     var where = {};
-    var s = ('undefined' !== typeof req.query.s) ? req.query.s : ('undefined' !== typeof req.xdata.s) ? req.xdata.s : '';
+    var s = ('undefined' !== typeof req.query.s) ? req.query.s : ('undefined' !== typeof req.getData.s) ? req.getData.s : '';
     var s = eval("\/" + s + "\/i");
     if ('undefined' !== typeof s) {
         where.$or = [
@@ -25,7 +25,7 @@ o.index = function (req, res, next) {
     op.page = page;
     op.perPage = perPage;
     //bysort
-    var bysort = ('undefined' !== typeof req.xdata.bysort && req.xdata.bysort != '') ? req.xdata.bysort : '';
+    var bysort = ('undefined' !== typeof req.getData.bysort && req.getData.bysort != '') ? req.getData.bysort : '';
     switch (bysort) {
         case 'latest':
             op.sort = {'_id': -1};
@@ -68,9 +68,9 @@ o.index = function (req, res, next) {
 }
 o.content = function (req, res, next) {
     var _S = this;
-    if ('undefined' !== typeof req.xdata) {
+    if ('undefined' !== typeof req.getData) {
         var where = {};
-        id = req.xdata.id;
+        id = req.getData.id;
         D.collection('blogs').findById(id,function (err, row) {
             if (err) {
                 res.json({code: 1, data: err, tips: '非法操作 找不到相关资源'});
@@ -105,7 +105,7 @@ o.content = function (req, res, next) {
 
 o.author = function (req, res, next) {
 
-    if (req.xdata.name == '') {
+    if (req.getData.name == '') {
         next();
     }
     else {
@@ -123,7 +123,7 @@ o.author = function (req, res, next) {
                 {content: s}
             ];
         }
-        where.author = req.xdata.name;
+        where.author = req.getData.name;
         var op = {};
         op.where = where;
         op.page = page;
@@ -143,7 +143,7 @@ o.author = function (req, res, next) {
             })
 
             pageList = _S.pN.pageNavi(page, todos.count, perPage);
-            where = {name: req.xdata.name, status: true};
+            where = {name: req.getData.name, status: true};
 
 
             D.collection('members').findOne(where, function (err, userinfo) {

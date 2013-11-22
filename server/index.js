@@ -1,7 +1,7 @@
 var base = {
 
     init: function (req, res, next) {
-        res.render(C.config.static + '/view/index.html');
+        res.render(C.static + '/view/index.html');
     }
 }
 

@@ -1,1 +1,1 @@
-require(__dirname + "/ANS/ANS").init(__dirname);
+require(__dirname + "/server/conf/ANS").init(__dirname);

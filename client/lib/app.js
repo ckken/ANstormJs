@@ -127,7 +127,7 @@ angular.module('Nstorm', ['ngRoute','Nstorm.controllers', 'Nstorm.directives', '
         ]
         $rootScope.global.ArticleTagsMax = 5;
         $rootScope.global.ContentMinLen = 5;
-        $rootScope.global.ContentMaxLen = 2000;
+        $rootScope.global.ContentMaxLen = 20000;
         $rootScope.global.UserTagsMax = 4;
         $rootScope.global.TitleMaxLen = 90;
         $rootScope.global.TitleMinLen = 5;

@@ -1,6 +1,6 @@
 {
     "name": "ANstormJs",
-    "version": "0.0.1",
+    "version": "0.3.1",
     "description": "",
     "keywords": ["Node.js", "AngularJS", "mongoDB", "Seajs"],
     "private": true,
@@ -12,6 +12,6 @@
         "ejs": "*",
         "mongoskin": "*",
         "nodemailer": "*",
-        "thenjs":"*"
+        "q":"*"
     }
 }

@@ -18,7 +18,7 @@ var express = {
         app.configure(function () {
             //模版全局路径
             /*app.helpers({config: config})*/
-            app.use(express.favicon(C.static + '/favicon.ico'));
+            app.use(express.favicon(C.static + C.favicon));
             app.use(express.logger('dev'));
             //app.use(express.bodyParser());
             app.use(express.json());
@@ -42,8 +42,5 @@ var express = {
 
         return app;
     }
-
-
-
 }
 module.exports = express;

@@ -17,22 +17,13 @@ config.init = function (path) {
         version: '0.0.1',
         //path
         root: root,
-        staticUrl: '',
-        surl: '',//css images js url
-        purl: '',//data images url
-        app: app,
         static: root + '/client',
-        common: root + '/ANS/lib',
-        view: app + '/view/default',
+        app: app,
+        view: app + '/view',
         model: app + '/model',
-        //action: app + '/action',
-        //site: app + '/site',
-
-        //global function
-//        time: function () {
-//            return Math.round(date.getTime() / 1000)
-//        },
-        now: Math.round(date.getTime() / 1000)
+        time: Math.round(date.getTime() / 1000),//当前时间
+        //favicon 基于client
+        favicon: + '/favicon.ico'
 
     }
 

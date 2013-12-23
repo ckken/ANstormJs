@@ -11,13 +11,14 @@ var base = {
         var _S = this;
         if ('function' !== typeof _S[a])next();
         else {
-            _S.checkLogin(req, res);
-            _S[a](req, res, next);
+            _S.checkLogin(req, res,function(){
+                _S[a](req, res, next);
+            });
         }
 
     },
 
-    checkLogin: function (req, res) {
+    checkLogin: function (req, res,callback) {
         var _S = this;
         var userstr = req.signedCookies.user;
 
@@ -35,14 +36,11 @@ var base = {
                 _S.Guser = user;
                 _S.Guser.login = true;
                 _S.Guser.admin = false;
-                if (user.email == 'ckken@qq.com')_S.Guser.isAdmin = true;
-                return true;
+                if (user.email == 'ckken@qq.com')_S.Guser.admin = true;
+                console.log(user);
             }
         }
-        else {
-            return false;
-        }
-
+        callback();
     }
 }
 

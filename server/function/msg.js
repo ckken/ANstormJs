@@ -7,7 +7,6 @@ var msg = {
     },
 
     dump: function (obj) {
-        console.log(obj);
     }
 }
 

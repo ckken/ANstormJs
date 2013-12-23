@@ -83,7 +83,6 @@ o.content = function (req, res, next) {
                 row.creattime = _S.date.format(row.creattime, 'yyyy-mm-dd hh:ii:ss');
                 row.updatetime = _S.date.format(row.updatetime, 'yyyy-mm-dd hh:ii:ss');
                 D.collection('members').findOne({name:row.author},function (err, data) {
-                    console.log(data);
                     if(data!=null){
                         row.author = data;
                         row.avatar = _S.encode.md5(data.email||'');
@@ -194,9 +193,6 @@ o.userList = function (req, res, next) {
             res.json(userlist);
         })
     })
-
-
-
 }
 
 module.exports = o;

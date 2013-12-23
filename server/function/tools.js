@@ -1,6 +1,4 @@
 'use strict';
-/*global require, module, Buffer, process, jsGen*/
-
 var crypto = require('crypto'),
     then = require('thenjs'),
     msg = require('./msg.js'),

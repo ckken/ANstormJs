@@ -2,12 +2,12 @@ var ANS  ={
     init: function (root) {
         this.conf = root + "/server/conf";
         global.C = require(this.conf+'/config').init(root);
-        M = {};
+        global.M = {};
         M.express = require('express');
-        M.mongoskin = require('mongoskin');
-        M.nodemailer = require('nodemailer');
-        M.thenjs = require('thenjs');
-        F = {};
+        M.mongoskin = require('mongoskin');//mongo
+        M.nodemailer = require('nodemailer');//邮件
+        global.Q = require('q');//延迟执行
+        global.F = {};
         this.fpath = root + "/server/function";
         F.pageNavi = require(this.fpath + '/pageNavi');
         F.date = require(this.fpath + '/date');
@@ -16,9 +16,10 @@ var ANS  ={
         F.encode = require(this.fpath + '/encode');
         F.html = require(this.fpath + '/html');
         F.msg = require(this.fpath + '/msg');
-        F.upload = require(this.fpath + '/upload');
+        F.upload = require(this.fpath + '/upload');;
         //init config
         this.express();
+        console.log('the ANS has run on localhost:'+C.port);
     },
 
     express:function(){

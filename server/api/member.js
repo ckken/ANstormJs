@@ -11,7 +11,6 @@ o.login = function (req, res) {
             {name: name}
         ];
         where.password = _S.encode.md5(password);
-        console.log(where);
         D.collection('members').findOne(where, function (err, data) {
 
             if (data != null) {
@@ -71,11 +70,9 @@ o.register = function (req, res) {
                     var data = d;
                     if (!count) {
                         D.collection('members').insert(d, function (err) {
-                            // console.log(data);
                            // data.id = id;
                             data.status = 0;
                             var key = {name: data.name, email: data.email, uid: data._id, status: data.status};
-                            console.log(key);
                             key = JSON.stringify(key);
                             key = _S.encode.e(key);
                             res.cookie('user', key, { maxAge: C.maxAge, path: '/', signed: true});
@@ -155,41 +152,5 @@ o.changePassword = function (req, res) {
         })
     }
 }
-
-/*o.checkLogin = function(req,res){
- var _S = this;
- var userstr = req.signedCookies.user;
-
- if('undefined'!==typeof userstr && userstr !='')
- {
- userstr = _S.encode.d(userstr);
- var user = eval('(' + userstr + ')');
- if('undefined'===typeof user)
- {
- //res.redirect('/member/gate/login/');
- res.json({code:1,data:"请登录"});
- return false;
- }
- else
- {
- user.avatar = _S.encode.md5(user.email);
-
- var headers = req.headers;
- user.ip = headers['x-real-ip'] || headers['x-forwarded-for']||req.ip;
- //console.log(headers);
- global.user = user;//模块全局
- //app.locals({user: user});//模版全局
- res.json({code:1,data:user});
- return true;
- }
- }
- else
- {
- //res.redirect('/member/gate/login/');
- res.json({code:1,data:"请登录"});
- return false;
- }
-
- }*/
 
 module.exports = o;

@@ -1,4 +1,4 @@
-ANS Angularjs NstormJs web framework v 0.1.3.2
+ANS Angularjs NstormJs web framework v 0.3.1
 =========
 
 DEMO： http://ans.wvovo.com/
@@ -12,4 +12,6 @@ DEMO： http://ans.wvovo.com/
 运用框架 mongodb(Mongoskin) , Nodejs , Express , Nstorm , AngularJs , Seajs(next version)
 
 调整了部分代码 优化angularjs 1.2.1版本带来的问题
+
+下一个版本增加内容 ： 增加 Q.JS 作为异步编程的概念 ， 重构目前的js结构 使用 seajs 作为加载器重新构造
 

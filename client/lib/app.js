@@ -120,11 +120,17 @@ angular.module('Nstorm', ['ngRoute','Nstorm.controllers', 'Nstorm.directives', '
             $rootScope.checkUser();
             $rootScope.global.loading = false;
         });
-        $rootScope.global.tagsList = [
+/*        $rootScope.global.tagsList = [
             {_id: 1, tag: 'Nodejs'},
             {_id: 2, tag: 'AngularJS'},
             {_id: 3, tag: 'SeaJS'}
-        ]
+        ]*/
+
+        $http.get('/api/main/tagsList/').success(function (data) {
+            $rootScope.global.tagsList = data;
+        });
+
+
         $rootScope.global.ArticleTagsMax = 5;
         $rootScope.global.ContentMinLen = 5;
         $rootScope.global.ContentMaxLen = 20000;

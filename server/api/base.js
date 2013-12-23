@@ -37,7 +37,6 @@ var base = {
                 _S.Guser.login = true;
                 _S.Guser.admin = false;
                 if (user.email == 'ckken@qq.com')_S.Guser.admin = true;
-                console.log(user);
             }
         }
         callback();

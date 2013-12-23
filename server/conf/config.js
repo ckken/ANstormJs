@@ -23,7 +23,7 @@ config.init = function (path) {
         model: app + '/model',
         time: Math.round(date.getTime() / 1000),//当前时间
         //favicon 基于client
-        favicon: + '/favicon.ico'
+        favicon: '/favicon.ico'
 
     }
 

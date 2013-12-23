@@ -78,6 +78,28 @@ o.insert = function (req, res, next) {
 
                 D.collection('blogs').insert(d, function (err, row) {
                     if (err)return next(err);
+                    if(d.tags.length>0){
+                        d.tags.forEach(function(v){
+                            D.collection('tags').count({tags: v}, function (err, count) {
+                                if (count > 0) {
+                                    next();
+                                }
+                                else {
+                                    var t = {};
+                                    t.tags = v;
+                                    t.ip = _S.Guser.ip;
+                                    t.email = _S.Guser.email;
+                                    t.author = _S.Guser.name;
+                                    D.collection('tags').insert(t, function (err, row) {
+                                        if (err)return next(err);
+                                        next();
+                                    })
+                                }
+                            });
+                        })
+                    }
+
+
                     res.json({code: 0, data: row[0], tips: "添加成功"});
                     D.collection('members').update({email: d.email}, {$set: {$inc: {postnum: 1}}}, function (r) {
                     });
@@ -88,6 +110,7 @@ o.insert = function (req, res, next) {
         });
     }
 }
+
 o.update = function (req, res, next) {
     var _S = this;
 

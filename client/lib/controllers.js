@@ -74,8 +74,8 @@ angular.module('Nstorm.controllers', []).
 
         }]).
 
-    controller('editCtrl', ['$scope', '$routeParams', '$http',
-        function ($scope, $routeParams, $http) {
+    controller('editCtrl', ['$rootScope','$scope', '$routeParams', '$http',
+        function ($rootScope,$scope, $routeParams, $http) {
 
             $scope.msg(0);
             if (!Nstorm.rootScope.global.isLogin) $scope.msg(1, '请登陆后再发布文章');
@@ -137,7 +137,7 @@ angular.module('Nstorm.controllers', []).
                 }
             });
             $scope.getTag = function (t) {
-                var tag = t.tag;
+                var tag = t.tags;
                 if ($scope.tagsList.indexOf(tag) === -1 && $scope.tagsList.length < $scope.global.UserTagsMax) {
                     $scope.tagsList = $scope.tagsList.concat(tag); // 此处push方法不会更新tagsList视图
                 }
@@ -165,6 +165,11 @@ angular.module('Nstorm.controllers', []).
                         $scope.msg(1, cb.tips, 'danger');
                     }
                     else {
+
+                        $http.get('/api/main/tagsList/').success(function (data) {
+                            $rootScope.global.tagsList = data;
+                        });
+
                         Nstorm.rootScope.global.loading = false;
                         Nstorm.location.path('/content/' + cb.data._id);
                     }

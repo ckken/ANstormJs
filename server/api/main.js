@@ -14,4 +14,13 @@ o.config = function (req, res) {
 
 }
 
+o.tagsList = function(req, res){
+    var _S = this;
+    var tagsList = {};
+    op = {email:_S.Guser.email};
+    D.collection('tags').find(op).toArray(function (err, tagsList) {
+        res.json(tagsList);
+    });
+}
+
 module.exports = o;

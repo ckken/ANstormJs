@@ -1,4 +1,3 @@
 /.idea
 /node_modules
-/conf/config.js
-
+/config/config.js

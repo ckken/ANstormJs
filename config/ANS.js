@@ -7,6 +7,7 @@ var ANS  ={
         M.mongoskin = require('mongoskin');//mongo
         M.nodemailer = require('nodemailer');//邮件
         global.Q = require('q');//延迟执行
+        //global.when = require('when');//延迟执行
         global.F = {};
         this.fpath = root + "/lib/function";
         F.pageNavi = require(this.fpath + '/pageNavi');

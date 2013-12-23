@@ -160,7 +160,7 @@ angular.module('Nstorm.controllers', []).
                 blog.refer = $scope.refer;
                 blog.tags = $scope.tagsList;
 
-                $http.post('/api/ublog/' + crud_action + '/', blog).success(function (cb) {
+                $http.post('/api/blog/' + crud_action + '/', blog).success(function (cb) {
                     if (cb.code) {
                         $scope.msg(1, cb.tips, 'danger');
                     }
@@ -184,7 +184,7 @@ angular.module('Nstorm.controllers', []).
             var del = 0;
             if ('undefined' !== typeof $routeParams.id && del == 0) {
 
-                $http.post('/api/ublog/delete/id/' + $routeParams.id).success(function (cb) {
+                $http.post('/api/blog/delete/id/' + $routeParams.id).success(function (cb) {
                     //Nstorm.location.path('/');
                     history.go(-1);
 

@@ -1,4 +1,4 @@
-ANS Angularjs NstormJs web framework v 0.3.3
+ANS Angularjs NstormJs web framework v 0.3.8
 =========
 
 DEMO： http://ans.wvovo.com/
@@ -15,5 +15,7 @@ DEMO： http://ans.wvovo.com/
 
 重构了目录结构 让前后端配置 以及函数可以公用
 
-下一个版本增加内容 ： 增加 Q.JS 作为异步编程的概念 ， 重构目前的js结构 使用 seajs 作为加载器重新构造
+增加 Q.JS 作为异步编程的概念
+
+下一步：使用 seajs 作为加载器重新构造 ， 重构数据结构，重构用户交互界面
 

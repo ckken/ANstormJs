@@ -10,7 +10,7 @@
     "dependencies": {
         "express": "*",
         "ejs": "*",
-        "mongoskin": "*",
+        "mongoose": "*",
         "nodemailer": "*",
         "q":"*"
     }

@@ -32,6 +32,7 @@ D.bind('blogs', {
     },
     delete:function(id,fn){
         this.remove({_id: this.ObjectID(id)},function(err){
+            console.log(err)
             fn(err);
         });
     }

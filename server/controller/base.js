@@ -34,9 +34,7 @@ var base = {
                 var headers = req.headers;
                 user.ip = headers['x-real-ip'] || headers['x-forwarded-for'] || req.ip;
                 _S.Guser = user;
-                _S.Guser.login = true;
-                _S.Guser.admin = false;
-                if (user.email == 'ckken@qq.com')_S.Guser.admin = true;
+
             }
         }
         callback();

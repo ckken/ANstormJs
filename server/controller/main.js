@@ -18,7 +18,7 @@ o.tagsList = function(req, res){
     var _S = this;
     var tagsList = {};
     op = {email:_S.Guser.email};
-    D.collection('tags').find(op).toArray(function (err, tagsList) {
+    D('tags').find(op).exec(function (err, tagsList) {
         res.json(tagsList);
     });
 }

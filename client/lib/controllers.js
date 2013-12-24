@@ -195,8 +195,8 @@ angular.module('Nstorm.controllers', []).
         }]).
 
 
-    controller('userLoginCtrl', ['$scope', '$routeParams', '$http',
-        function ($scope, $routeParams, $http) {
+    controller('userLoginCtrl', ['$rootScope','$scope', '$routeParams', '$http',
+        function ($rootScope,$scope, $routeParams, $http) {
             $scope.msg(0);
             $scope.submit = function (user) {
 
@@ -206,7 +206,7 @@ angular.module('Nstorm.controllers', []).
                     }
                     else {
 
-                        $scope.global.user = Nstorm.union(cb.data);
+                        $rootScope.global.user = Nstorm.union(cb.data);
                         $scope.checkUser();
                         Nstorm.location.path('/');
                     }

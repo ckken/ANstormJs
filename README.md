@@ -1,4 +1,4 @@
-ANS Angularjs NstormJs web framework v 0.3.8
+ANS Angularjs NstormJs web framework v 0.4.1
 =========
 
 DEMO： http://ans.wvovo.com/
@@ -16,6 +16,12 @@ DEMO： http://ans.wvovo.com/
 重构了目录结构 让前后端配置 以及函数可以公用
 
 增加 Q.JS 作为异步编程的概念
+
+更换mongo驱动 回 mongoose (mongoskin 已经不更新了 调试不方便)
+
+重构mongoose 数据结构 创建公用mongoDB类
+
+更新 angular.js 1.2.5
 
 下一步：使用 seajs 作为加载器重新构造 ， 重构数据结构，重构用户交互界面
 

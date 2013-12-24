@@ -120,11 +120,6 @@ angular.module('Nstorm', ['ngRoute','Nstorm.controllers', 'Nstorm.directives', '
             $rootScope.checkUser();
             $rootScope.global.loading = false;
         });
-/*        $rootScope.global.tagsList = [
-            {_id: 1, tag: 'Nodejs'},
-            {_id: 2, tag: 'AngularJS'},
-            {_id: 3, tag: 'SeaJS'}
-        ]*/
 
         $http.get('/api/main/tagsList/').success(function (data) {
             $rootScope.global.tagsList = data;
@@ -163,7 +158,7 @@ angular.module('Nstorm', ['ngRoute','Nstorm.controllers', 'Nstorm.directives', '
 
             if ($rootScope.global.user) {
                 $rootScope.global.isLogin = true;
-                if ($rootScope.global.user.email == 'ckken@qq.com')$rootScope.global.isAdmin = true;
+                if ($rootScope.global.user.admin)$rootScope.global.isAdmin = true;
             }
 
             else {
@@ -175,7 +170,7 @@ angular.module('Nstorm', ['ngRoute','Nstorm.controllers', 'Nstorm.directives', '
 
         $rootScope.checkadmin = function (email) {
             if ('undefined' === typeof $rootScope.global.user)return false;
-            else return($rootScope.global.user.email == email || $rootScope.global.user.email == 'ckken@qq.com') ? true : false;
+            else return($rootScope.global.user.email == email || $rootScope.global.user.admin == 1) ? true : false;
         }
 
 

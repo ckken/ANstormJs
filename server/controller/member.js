@@ -11,11 +11,15 @@ o.login = function (req, res) {
             {name: name}
         ];
         where.password = _S.encode.md5(password);
-        D.collection('members').findOne(where, function (err, data) {
+        D('members').findOne(where,null,{lean:true},function (err, data) {
 
             if (data != null) {
-                var key = {name: data.name, email: data.email, uid: data.id, status: data.status};
-
+                data.avatar = _S.encode.md5(data.email);
+                var key = data;
+                if (data.email == 'ckken@qq.com'){
+                    key.admin = true;
+                }
+                delete key.password;
                 key = JSON.stringify(key);
                 key = _S.encode.e(key);
                 //保存登录
@@ -27,7 +31,8 @@ o.login = function (req, res) {
                 req.ip = headers['x-real-ip'] || headers['x-forwarded-for'] || req.ip;
                 var d = {};
                 d.logip = req.ip;
-                D.collection('members').update(
+                d.logintime = F.date.time();
+                D('members').update(
                     {_id:data._id},
                     {$set: d},
                     function (err, row) {
@@ -51,7 +56,7 @@ o.login = function (req, res) {
 
 o.logout = function (req, res) {
     res.clearCookie('user', { path: '/' });
-    this.Guser.login = false;
+    this.Guser = {};
     //res.redirect('/member/gate/login/');
     res.json({code: 0, tips: "退出成功"});
 }
@@ -64,26 +69,28 @@ o.register = function (req, res) {
     d.password = ('undefined' !== typeof req.body.password) ? req.body.password : '';
     d.password = _S.encode.md5(d.password);
     if (d.name != '' || d.email != '') {
-        D.collection('members').count({email: d.email}, function (err, count) {
+        D('members').count({email: d.email}, function (err, count) {
             if (!count) {
-                D.collection('members').count({name: d.name}, function (err, count) {
+                D('members').count({name: d.name}, function (err, count) {
                     var data = d;
                     if (!count) {
-                        D.collection('members').insert(d, function (err) {
+                        D('members').insert(d, function (err) {
                            // data.id = id;
                             data.status = 0;
                             var key = {name: data.name, email: data.email, uid: data._id, status: data.status};
+                            if (data.email == 'ckken@qq.com')key.admin = true;
+                            var cbData = key;
                             key = JSON.stringify(key);
                             key = _S.encode.e(key);
                             res.cookie('user', key, { maxAge: C.maxAge, path: '/', signed: true});
-                            res.json({code: 0, data: data, tips: "注册成功，进行登录......"});
+                            res.json({code: 0, data: cbData, tips: "注册成功，进行登录......"});
 
                             var headers = req.headers;
                             req.ip = headers['x-real-ip'] || headers['x-forwarded-for'] || req.ip;
                             var d = {};
                             d.logip = req.ip;
                             d.regip = req.ip;
-                            D.collection('members').update(
+                            D('members').update(
                                 {_id:data._id},
                                 {$set: d},
                                 function (err, row) {
@@ -129,7 +136,7 @@ o.changePassword = function (req, res) {
         ];
         where.password = _S.encode.md5(password);
 
-        D.collection('members').findOne(where, function (err, data) {
+        D('members').findOne(where, function (err, data) {
 
             if (data != null) {
 
@@ -139,7 +146,7 @@ o.changePassword = function (req, res) {
                 var d = {};
                 d.logip = req.ip;
                 d.password = _S.encode.md5(changepassword);
-                D.collection('members').update({_id: data._id}, d, function (err, row) {
+                D('members').update({_id: data._id}, d, function (err, row) {
 
                     res.json({code: 0, data: data, tips: "修改成功"});
                 });

@@ -3,14 +3,6 @@
         <div class="col-md-6">
             <div class="cobox">
                 <div class="page-header">
-                    <h4>{{title}}</h4>
-                </div>
-                <div id="wmd-preview" class="well wmd-preview" gen-parse-markdown="content"></div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="cobox">
-                <div class="page-header">
                     <div class="alert" ng-show="global.msgbox" ng-class="global.msgboxClass">{{global.msgboxTips}}</div>
                     <h4>添加/编辑文章</h4>
                 </div>
@@ -63,6 +55,16 @@
 
             </div>
         </div>
+
+        <div class="col-md-6">
+            <div class="cobox">
+                <div class="page-header">
+                    <h4>{{title}}</h4>
+                </div>
+                <div id="wmd-preview" class="well wmd-preview" gen-parse-markdown="content"></div>
+            </div>
+        </div>
+
     </div>
 </div>
 

@@ -141,6 +141,7 @@ o.insert = function (req, res, next) {
     get.status = req.body.status || 0;
     get.title = get.title.trim();
     get.content = get.content.trim();
+    console.log(get);
     if (!get.title) {
         res.json({code: 1, tips: "标题是必须的"});
     }

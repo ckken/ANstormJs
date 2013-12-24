@@ -1,8 +1,13 @@
-<ul class="breadcrumb">
-    <li><a href="/">Home</a></li>
-    <li ng-show="tag" class="active">{{tag}}</li>
-</ul>
-<div class="col-12 col-lg-8"><span class="pull-right"><a href="/blog/add"
+<div class="cobox clearfix">
+
+<div class="col-12 col-lg-8">
+
+    <ul class="breadcrumb clearfix">
+        <li><a href="/">Home</a></li>
+        <li ng-show="tag" class="active">{{tag}}</li>
+    </ul>
+
+    <span class="pull-right"><a href="/blog/add"
                                                          class="btn btn-success btn-small">发布文章</a></span>
     <ul class="nav nav-tabs" id="blog-status">
         <li ng-class="action('latest')"><a href="/blog/sort/latest">最新</a></li>
@@ -34,4 +39,5 @@
             <p style="height:20px; line-height:20px; overflow:hidden; text-align:center">{{u.name}}</p>
         </div>
     </div>
+</div>
 </div>

@@ -54,16 +54,26 @@
     <script src="/lib/app.js"></script>
 </head>
 <body>
-<div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
-    <div class="container">
 
+<div class="topBanner">
+    <div class="container">
+    <h3><a href="/" class="logo">ANS FrameWork</a></h3>
+    <p>Angularjs & Nodejs & Seajs Web Framework</p>
+        </div>
+</div>
+
+<div class="navbar navbar-inverse bs-docs-nav" role="banner">
+    <div class="container">
 
         <div class="navbar-header">
             <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse"><span
                     class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span
                     class="icon-bar"></span> <span class="icon-bar"></span></button>
-            <a href="/" class="navbar-brand">ANstorm</a></div>
-        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+            <h1><a href="/" class="navbar-brand"></a></h1>
+        </div>
+
+        <nav class="collapse navbar-collapse bs-navbar-collapse clearfix" role="navigation">
+
             <ul class="nav navbar-nav">
                 <li><a href="/">首页</a></li>
 
@@ -80,13 +90,15 @@
                 <li><a href="/blog/tags/AngularJS">AngularJS</a></li>
                 <li><a href="/blog/tags/SeaJS">SeaJS</a></li>
             </ul>
+
             <ul class="nav navbar-nav pull-right">
-                <li ng-hide="global.isLogin"><a href="/login">登录</a></li>
-                <li ng-hide="global.isLogin"><a href="/register">注册</a></li>
-                <li class="dropdown" ng-show="global.isLogin"><a class="dropdown-toggle" data-toggle="dropdown">
-                    <span><img class="avatar hidden-phone"
-                               ng-src="http://www.gravatar.com/avatar/{{global.user.avatar}}?size=23" width="23"
-                               height="23"> </span> {{global.user.name}} <b class="caret hidden-phone"></b> </a>
+                <li ng-hide="global.isLogin"><a class="btn" href="/login">Login</a></li>
+                <li ng-hide="global.isLogin"><a class="btn" href="/register">Register</a></li>
+                <li class="dropdown avatarBox" ng-show="global.isLogin">
+                    <a class="dropdown-toggle" data-toggle="dropdown">
+                    <span><img class="hidden-phone"
+                               ng-src="http://www.gravatar.com/avatar/{{global.user.avatar}}?size=38" width="40"
+                               height="40"> </span> {{global.user.name}} <b class="caret hidden-phone"></b> </a>
                     <ul class="dropdown-menu">
                         <li><a href="/home">用户主页</a></li>
                         <li><a href="/blog/add">发表文章</a></li>
@@ -95,19 +107,20 @@
                     </ul>
                 </li>
             </ul>
+
         </nav>
     </div>
 
 </div>
 <div class="container">
-    <div class="row bgw">
+    <div class="row">
         <div ng-view></div>
     </div>
 </div>
 <div class="footer">
     <div class="container">
         <div class="row">
-            <div class="col-12">ANS nodejs web app frame version 0.4.1 <b>Q.js流程化编程模型</b><br>
+            <div class="col-12">ANS nodejs web app frame version 0.4.2 <b>Q.js流程化编程模型</b><br>
                 Power by nodejs + mongodb + angularJs + Nstorm<br>
                 Join us email to ckken@qq.com
             </div>

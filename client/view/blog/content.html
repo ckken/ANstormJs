@@ -1,30 +1,36 @@
-<ul class="breadcrumb">
-    <li><a href="/">Home</a></li>
-    <li class="active">{{vo.title}}</li>
-</ul>
-<div class="col-12 col-lg-8 blogslist">
-    <div class="alert" ng-show="global.msgbox" ng-class="global.msgboxClass">{{global.msgboxTips}}</div>
-    <div class="single" ng-show="!global.msgbox">
+<div class="cobox clearfix">
+    <div class="col-12 col-lg-8 blogslist">
 
-        <h3>{{vo.title}}</h3>
+        <ul class="breadcrumb clearfix">
+            <li><a href="/">Home</a></li>
+            <li ng-show="tag" class="active">{{tag}}</li>
+        </ul>
 
-        <div class="info"> {{vo.author.name}} / 关键字:<span ng-repeat="v in vo.tags">
+        <div class="alert" ng-show="global.msgbox" ng-class="global.msgboxClass">{{global.msgboxTips}}</div>
+        <div class="single" ng-show="!global.msgbox">
+
+            <h3>{{vo.title}}</h3>
+
+            <div class="info"> {{vo.author.name}} / 关键字:<span ng-repeat="v in vo.tags">
             <a class="btn btn-primary btn-xs" ng-href="/blog/tags/{{v}}">{{v}}</a> </span>
-            / 更新:{{vo.updatetime}} / 热度: {{vo.view+1}}
-        </div>
-        <div class="entity" gen-parse-markdown="vo.content"></div>
-        <div class="info">
-
-            <div class="bs-callout bs-callout-warning media">
-                <img class="pull-left img-circle" ng-src="http://www.gravatar.com/avatar/{{vo.avatar}}?size=40">
-                <div class="media-body">
-                <h4>{{vo.author.name}}</h4>
-                <p>文章数:{{vo.author.postnum}} 是否认证:{{vo.author.status}}</p>
-                </div>
+                / 更新:{{vo.updatetime}} / 热度: {{vo.view+1}}
             </div>
+            <div class="entity" gen-parse-markdown="vo.content"></div>
+            <div class="info">
+
+                <div class="bs-callout bs-callout-warning media">
+                    <img class="pull-left img-circle" ng-src="http://www.gravatar.com/avatar/{{vo.avatar}}?size=40">
+
+                    <div class="media-body">
+                        <h4>{{vo.author.name}}</h4>
+
+                        <p>文章数:{{vo.author.postnum}} 是否认证:{{vo.author.status}}</p>
+                    </div>
+                </div>
 
 
+            </div>
         </div>
     </div>
+    <div class="col-12 col-lg-4"></div>
 </div>
-<div class="col-12 col-lg-4"></div>

@@ -1,4 +1,4 @@
-ANS Angularjs NstormJs web framework v 0.4.1
+ANS Angularjs NstormJs web framework v 0.4.2
 =========
 
 Q.js流程化编程模型

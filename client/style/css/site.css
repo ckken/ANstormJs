@@ -1,7 +1,7 @@
 /* Key scaffolding
 -------------------------------------------------- */
 
-body{ position:relative; padding-top:50px; }
+body{ position:relative; background:url("body_bg.jpg") #fdfdfd!important }
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,body{
     font-family:Helvetica, STHeiti STXihei, Microsoft JhengHei, Microsoft YaHei, Tohoma, Arial
 }
@@ -11,8 +11,8 @@ a:hover {
 }
 
 .avatar {
-    border-radius: 20px;
-    box-shadow: 0 0 6px hsla(0, 27%, 42%, .5);
+   /* border-radius: 20px;
+    box-shadow: 0 0 6px hsla(0, 27%, 42%, .5);*/
 }
 
 .btn-toolbar {
@@ -21,12 +21,18 @@ a:hover {
 
 /* Top nav and header
 -------------------------------------------------- */
-
+.topBanner{ background: #222; padding: 3px 0;}
+.topBanner p{ color: #aaa;}
+.topBanner .logo{ color: #fff;}
 .bs-docs-nav {
-    background-color: #3D6AA2;
+    background-color: #444; border-bottom: 1px solid #222;
     border-radius: 0;
 }
 
+.bs-docs-nav .btn{ background: #222;border-radius: 0; margin: 0 1px;}
+.bs-docs-nav .avatarBox{ background: #222}
+.bs-docs-nav .avatarBox a{ padding: 5px}
+.bs-docs-nav .avatarBox a span{ margin-right: 8px;}
 .bs-docs-nav .navbar-brand {
     color: #fff;
 }
@@ -42,19 +48,19 @@ a:hover {
 .bs-docs-nav .navbar-nav > .active > a, .bs-docs-nav .navbar-nav > .active > a:hover,
 .navbar-inverse .navbar-nav > .open > a {
     color: #fff !important;
-    background-color: #355E95 !important;
+    background-color: #3a3a3a !important;
 }
 
 .bs-docs-nav .navbar-toggle {
-    border-color: #355E95;
+    border-color: #3a3a3a;
     top: 8px;
     right: 8px;
     padding: 4px 8px;
 }
 
 .bs-docs-nav .navbar-toggle:hover {
-    background-color: #3D6AA2;
-    border-color: #355E95;
+    background-color: #55555;
+    border-color: #3a3a3a;
 }
 
 .bs-docs-nav .navbar-brand,
@@ -77,6 +83,7 @@ a:hover {
     list-style: none;
     margin: 0;
     -webkit-padding-start:0;
+    padding: 0 20px;
 }
 
 .blogslist li {
@@ -243,6 +250,9 @@ a:hover {
 }
 
 .thumbnail{ border-radius: 0}
-.editor{ padding: 10px 20px;}
+.editor{}
+.editor .cobox{ padding:20px;}
 
 .navbar-nav .open .dropdown-menu{ background: #f7f7f7}
+
+.cobox { padding:20px 5px; background:#fff; box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2); position:relative;}

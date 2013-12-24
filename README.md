@@ -1,6 +1,8 @@
 ANS Angularjs NstormJs web framework v 0.4.1
 =========
 
+Q.js流程化编程模型
+
 DEMO： http://ans.wvovo.com/
 
 安装方法：`npm install`
@@ -9,9 +11,8 @@ DEMO： http://ans.wvovo.com/
 
 运行程序 `node app.js`
 
-运用框架 mongodb(Mongoskin) , Nodejs , Express , Nstorm , AngularJs , Seajs(next version)
+运用框架 mongodb(Mongoose) , Nodejs , Express , Nstorm , AngularJs , Seajs(next version)
 
-调整了部分代码 优化angularjs 1.2.1版本带来的问题
 
 重构了目录结构 让前后端配置 以及函数可以公用
 

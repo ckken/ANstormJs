@@ -32,15 +32,7 @@ var ANS  ={
     },
 
     mongo:function(app){
-/*        var mongo = M.mongoskin;
-        global.D = mongo.db(C.mongodb,{safe:false});
-
-        app.on('close', function (err) {
-            mongo.close();
-        });*/
-
         var mongoose = require('mongoose');
-        //var Schema = mongoose.Schema;
         mongoose.connect(C.mongodb);
         app.on('close', function(err) {
             mongoose.disconnect(callback);

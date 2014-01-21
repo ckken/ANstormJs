@@ -1,7 +1,6 @@
 var config = module.exports = {};
 
 config.init = function (path) {
-    var date = new Date();
     var root = path;
     var app = root + '/server';
     var conf = {
@@ -11,31 +10,19 @@ config.init = function (path) {
         site_name: 'NodeJs开发社区',
         site_desc: '研究nodejs方向',
         session_secret: 'KenzRSecret',
-        secret: 'KensSecret',
-        mongodb: 'mongodb://localhost:27017/ANstormjs',
-
+        secret: 'Secret',
+        mongodb: 'mongodb://',
         maxAge: 259200000,
         version: '0.0.1',
-
         //path
         root: root,
-        staticUrl: '',
-        surl: '',//css images js url
-        purl: '',//data images url
-        app: app,
         static: root + '/client',
-        common: root + '/ANS/lib',
-        view: app + '/view/default',
+        app: app,
+        controller:app + '/controller',
+        view: app + '/view',
         model: app + '/model',
-        //action: app + '/action',
-        //site: app + '/site',
-
-        //global function
-//        time: function () {
-//            return Math.round(date.getTime() / 1000)
-//        },
-        now: Math.round(date.getTime() / 1000)
-
+        //favicon 基于client
+        favicon: '/favicon.ico'
     }
 
     return conf;

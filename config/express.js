@@ -34,6 +34,8 @@ var express = {
             app.use(express.static(C.static));//先声明静态环境 再设置路由 防止静态文件被路由解析了
             app.use(app.router);//设置路由
 
+            //app.disable('x-powered-by');//屏蔽x-powered-by
+
         });
         //开发模式
         app.configure('development', function () {

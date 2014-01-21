@@ -10,18 +10,18 @@ o.login = function (req, res) {
             {email: name},
             {name: name}
         ];
-        where.password = _S.encode.md5(password);
+        where.password = F.encode.md5(password);
         D('members').findOne(where,null,{lean:true},function (err, data) {
 
             if (data != null) {
-                data.avatar = _S.encode.md5(data.email);
+                data.avatar = F.encode.md5(data.email);
                 var key = data;
                 if (data.email == 'ckken@qq.com'){
                     key.admin = true;
                 }
                 delete key.password;
                 key = JSON.stringify(key);
-                key = _S.encode.e(key);
+                key = F.encode.e(key);
                 //保存登录
                 var maxAgeCookie = ('undefined' !== typeof req.body.remember) ? C.maxAge : 0;
 
@@ -67,7 +67,7 @@ o.register = function (req, res) {
     d.name = ('undefined' !== typeof req.body.name) ? req.body.name : '';
     d.email = ('undefined' !== typeof req.body.email) ? req.body.email : '';
     d.password = ('undefined' !== typeof req.body.password) ? req.body.password : '';
-    d.password = _S.encode.md5(d.password);
+    d.password = F.encode.md5(d.password);
     if (d.name != '' || d.email != '') {
         D('members').count({email: d.email}, function (err, count) {
             if (!count) {
@@ -81,7 +81,7 @@ o.register = function (req, res) {
                             if (data.email == 'ckken@qq.com')key.admin = true;
                             var cbData = key;
                             key = JSON.stringify(key);
-                            key = _S.encode.e(key);
+                            key = F.encode.e(key);
                             res.cookie('user', key, { maxAge: C.maxAge, path: '/', signed: true});
                             res.json({code: 0, data: cbData, tips: "注册成功，进行登录......"});
 
@@ -134,7 +134,7 @@ o.changePassword = function (req, res) {
             {email: name},
             {name: name}
         ];
-        where.password = _S.encode.md5(password);
+        where.password = F.encode.md5(password);
 
         D('members').findOne(where, function (err, data) {
 
@@ -145,7 +145,7 @@ o.changePassword = function (req, res) {
                 req.ip = headers['x-real-ip'] || headers['x-forwarded-for'] || req.ip;
                 var d = {};
                 d.logip = req.ip;
-                d.password = _S.encode.md5(changepassword);
+                d.password = F.encode.md5(changepassword);
                 D('members').update({_id: data._id}, d, function (err, row) {
 
                     res.json({code: 0, data: data, tips: "修改成功"});

@@ -45,15 +45,15 @@ o.index = function (req, res, next) {
         if (err) return next(err);
 
         todos.data.forEach(function (vo) {
-            vo.creattime = _S.date.dgm(vo.creattime, 'yyyy-mm-dd');
-            vo.updatetime = _S.date.dgm(vo.updatetime, 'yyyy-mm-dd');
-            if ('undefined' !== typeof vo.email)vo.avatar = _S.encode.md5(vo.email);
+            vo.creattime = F.date.dgm(vo.creattime, 'yyyy-mm-dd');
+            vo.updatetime = F.date.dgm(vo.updatetime, 'yyyy-mm-dd');
+            if ('undefined' !== typeof vo.email)vo.avatar = F.encode.md5(vo.email);
             if ('undefined' !== typeof vo.content) {
-                vo.content = _S.html.delHtmlTag(vo.content);
+                vo.content = F.html.delHtmlTag(vo.content);
                 vo.content = vo.content.substring(0, 250);
             }
         })
-        pageList = _S.pN.pageNavi(page, todos.count, perPage);
+        pageList = F.pageNavi.pageNavi(page, todos.count, perPage);
         res.json({
             blogs: todos.data,
             page: pageList
@@ -75,12 +75,12 @@ o.content = function (req, res, next) {
                 res.json({code: 1, data: err, tips: '非法操作 找不到相关资源'});
             }
             else {
-                row.creattime = _S.date.format(row.creattime, 'yyyy-mm-dd hh:ii:ss');
-                row.updatetime = _S.date.format(row.updatetime, 'yyyy-mm-dd hh:ii:ss');
+                row.creattime = F.date.format(row.creattime, 'yyyy-mm-dd hh:ii:ss');
+                row.updatetime = F.date.format(row.updatetime, 'yyyy-mm-dd hh:ii:ss');
                 D('members').findOne({name: row.author}, function (err, data) {
                     if (data != null) {
                         row.author = data;
-                        row.avatar = _S.encode.md5(data.email || '');
+                        row.avatar = F.encode.md5(data.email || '');
                     }
                     res.json({"blogs": row});
                 });
@@ -109,7 +109,7 @@ o.userList = function (req, res, next) {
         D('members').find().sort(bysort).limit(limit).lean().exec(function (err, data) {
             if (err) deferred.reject(err);
             data.forEach(function (vo) {
-                vo.avatar = _S.encode.md5(vo.email);
+                vo.avatar = F.encode.md5(vo.email);
                 delete vo.password;
             });
                 deferred.resolve(data);
@@ -162,7 +162,7 @@ o.insert = function (req, res, next) {
 
         if (count>0)deferred.reject(res.json({code: 1, tips: "存在同标题的内容"}));
         var d = get;
-        //d.pic=_S.Up.init(req.files.pic);
+        //d.pic=F.upload.init(req.files.pic);
         d.ip = _S.Guser.ip;
         d.email = _S.Guser.email;
         d.author = _S.Guser.name;
@@ -220,7 +220,7 @@ o.update = function (req, res, next) {
             }
             var d = {};
             var id = req.body._id;
-            if ('undefined' !== typeof req.files)d.pic = _S.Up.init(req.files.pic);
+            if ('undefined' !== typeof req.files)d.pic = F.upload.init(req.files.pic);
             d.title = title;
             d.ip = user.ip;
             d.content = req.body.content;

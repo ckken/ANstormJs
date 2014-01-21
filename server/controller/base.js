@@ -1,10 +1,5 @@
 var base = {
 
-    pN: F.pageNavi,
-    Up: F.upload,
-    date: F.date,
-    encode: F.encode,
-    html: F.html,
     Guser: {},
 
     init: function (req, res, next, a) {
